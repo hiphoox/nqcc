@@ -2,28 +2,9 @@
 'use strict';
 
 var Belt_SetInt = require("bs-platform/lib/js/belt_SetInt.js");
-
-function id(x) {
-  return x;
-}
-
-function add(x, y) {
-  return x + y | 0;
-}
+var Caml_builtin_exceptions = require("bs-platform/lib/js/caml_builtin_exceptions.js");
 
 console.log("asdasdasdas");
-
-function stringOfColor(c) {
-  switch (c) {
-    case 0 : 
-        return "red";
-    case 1 : 
-        return "green";
-    case 2 : 
-        return "blue";
-    
-  }
-}
 
 console.log("green");
 
@@ -69,21 +50,13 @@ var resultado = sum(miArbol);
 
 console.log(resultado);
 
-function times2(x) {
-  return (x << 1);
-}
-
-function twice(s) {
-  return s + s;
-}
-
 var s = String(8);
 
 var result = s + s;
 
 console.log("Result: " + (String(result) + ""));
 
-var _items = Belt_SetInt.fromArray(/* array */[
+Belt_SetInt.fromArray(/* array */[
       3,
       5,
       2,
@@ -117,22 +90,13 @@ var items2 = /* :: */[
 
 console.log(items2);
 
-var variable = 123;
+throw [
+      Caml_builtin_exceptions.match_failure,
+      /* tuple */[
+        "Demo.re",
+        57,
+        4
+      ]
+    ];
 
-var _resultado = 7;
-
-exports.variable = variable;
-exports.id = id;
-exports.add = add;
-exports._resultado = _resultado;
-exports.stringOfColor = stringOfColor;
-exports.sum = sum;
-exports.miArbol = miArbol;
-exports.resultado = resultado;
-exports.times2 = times2;
-exports.twice = twice;
-exports.result = result;
-exports._items = _items;
-exports.items = items;
-exports.items2 = items2;
 /*  Not a pure module */

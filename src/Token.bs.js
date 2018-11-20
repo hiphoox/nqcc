@@ -36,12 +36,18 @@ function tokenToString(acummulator, t) {
   return acummulator + (" " + (result + ","));
 }
 
-function toString(tokensList) {
+function tokenListToString(tokensList) {
   var comma_regexp = (/,$/);
   var stringList = Belt_List.reduce(tokensList, "[", tokenToString);
   return stringList.replace(comma_regexp, " ]");
 }
 
+function printTokenList(tokenList) {
+  console.log(tokenListToString(tokenList));
+  return tokenList;
+}
+
 exports.tokenToString = tokenToString;
-exports.toString = toString;
+exports.tokenListToString = tokenListToString;
+exports.printTokenList = printTokenList;
 /* No side effect */

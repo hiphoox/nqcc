@@ -52,3 +52,10 @@ let _items = Belt.Set.Int.fromArray([|3, 5, 2, 5, 4, 6, 2|]);
 let items = [1, 2, 3, 4, 5];
 let items2 = [0, ...items];
 Js.log(items2);
+
+let itme2 = [];
+let [head, ...tail] = itme2;
+
+Js.log(head);
+Js.log(tail);
+Js.log(items);

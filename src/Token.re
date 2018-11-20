@@ -25,8 +25,13 @@ let tokenToString = (acummulator, t: token): string => {
   acummulator ++ " " ++ result ++ ",";
 };
 
-let toString = tokensList => {
+let tokenListToString = tokensList => {
   let comma_regexp = [%re "/,$/"];
   let stringList = Belt.List.reduce(tokensList, "[", tokenToString);
   Js.String.replaceByRe(comma_regexp, " ]", stringList);
+};
+
+let printTokenList = tokenList => {
+  tokenList |> tokenListToString |> Js.log;
+  tokenList;
 };
